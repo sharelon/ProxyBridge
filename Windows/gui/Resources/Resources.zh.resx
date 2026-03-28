@@ -1,5 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -12,8 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-
-  <!-- Menu Items -->
   <data name="MenuProxy" xml:space="preserve">
     <value>代理</value>
   </data>
@@ -37,30 +140,28 @@
   </data>
   <data name="MenuCloseToTray" xml:space="preserve">
     <value>关闭到系统托盘</value>
-  </data>  <data name="MenuRunAtStartup" xml:space="preserve">
+  </data>
+  <data name="MenuRunAtStartup" xml:space="preserve">
     <value>开机启动</value>
-  </data>  <data name="MenuLanguage" xml:space="preserve">
+  </data>
+  <data name="MenuLanguage" xml:space="preserve">
     <value>语言</value>
   </data>
   <data name="MenuAbout" xml:space="preserve">
     <value>关于</value>
   </data>
   <data name="MenuAboutProxyBridge" xml:space="preserve">
-    <value>关于ProxyBridge</value>
+    <value>关于CloudSmartIP</value>
   </data>
   <data name="MenuCheckUpdates" xml:space="preserve">
     <value>检查更新</value>
   </data>
-
-  <!-- Tabs -->
   <data name="TabConnections" xml:space="preserve">
     <value>网络连接</value>
   </data>
   <data name="TabActivity" xml:space="preserve">
     <value>活动日志</value>
   </data>
-
-  <!-- Buttons -->
   <data name="ButtonClear" xml:space="preserve">
     <value>清除</value>
   </data>
@@ -82,24 +183,17 @@
   <data name="ButtonDelete" xml:space="preserve">
     <value>删除</value>
   </data>
-
-  <!-- Search Placeholders -->
   <data name="SearchConnectionsPlaceholder" xml:space="preserve">
     <value>🔍 搜索连接...</value>
   </data>
   <data name="SearchActivityPlaceholder" xml:space="preserve">
     <value>🔍 搜索活动日志...</value>
   </data>
-
-  <!-- Log Messages -->
-  <data name="LogInitialized" xml:space="preserve">
-    <value>ProxyBridge初始化成功</value>
-  </data>
   <data name="LogServiceStarted" xml:space="preserve">
-    <value>ProxyBridge服务启动成功</value>
+    <value>服务启动成功</value>
   </data>
   <data name="LogServiceStartFailed" xml:space="preserve">
-    <value>错误: ProxyBridge服务启动失败</value>
+    <value>错误: 服务启动失败</value>
   </data>
   <data name="LogRestoredProxySettings" xml:space="preserve">
     <value>已恢复代理设置</value>
@@ -140,8 +234,6 @@
   <data name="LogWithAuth" xml:space="preserve">
     <value>需要认证</value>
   </data>
-
-  <!-- Proxy Settings Window -->
   <data name="WindowProxySettings" xml:space="preserve">
     <value>代理设置</value>
   </data>
@@ -193,8 +285,6 @@
   <data name="PlaceholderNoAuth" xml:space="preserve">
     <value>如不需要认证请留空</value>
   </data>
-
-  <!-- Proxy Rules Window -->
   <data name="WindowProxyRules" xml:space="preserve">
     <value>进程规则</value>
   </data>
@@ -232,7 +322,7 @@
     <value>示例: iexplore.exe; "C:\某个应用.exe"; fire*.exe; *.bin</value>
   </data>
   <data name="ExampleTargetHosts" xml:space="preserve">
-    <value>示例: 127.0.0.1; 192.168.1.*; 10.1.0.0-10.5.255.255</value>
+    <value>示例: 127.0.0.1; 192.168.1.*; 10.1.0.0-10.5.255.255;example.com; *.example.com</value>
   </data>
   <data name="ExampleTargetPorts" xml:space="preserve">
     <value>示例: 80; 8000-9000; 3128</value>
@@ -257,5 +347,41 @@
   </data>
   <data name="ButtonSaveRule" xml:space="preserve">
     <value>保存规则</value>
+  </data>
+  <data name="LogInitialized" xml:space="preserve">
+    <value>CloudSamrtIP初始化成功</value>
+  </data>
+  <data name="LoadConfigSuccessInfo" xml:space="preserve">
+    <value>配置文件加载成功</value>
+  </data>
+  <data name="LoadConfigFailInfo" xml:space="preserve">
+    <value>配置文件加载失败</value>
+  </data>
+  <data name="AddRuleFailInfo" xml:space="preserve">
+    <value>错误：添加规则失败</value>
+  </data>
+  <data name="SetProxyConfigFail" xml:space="preserve">
+    <value>错误：设置代理配置文件失败</value>
+  </data>
+  <data name="StartProxyFail" xml:space="preserve">
+    <value>错误：启动服务失败</value>
+  </data>
+  <data name="SearchConnectionsholder" xml:space="preserve">
+    <value>🔍 搜索连接...</value>
+  </data>
+  <data name="ButtonRuleSelectAll" xml:space="preserve">
+    <value>选择全部</value>
+  </data>
+  <data name="ButtonRuleDelSelected" xml:space="preserve">
+    <value>删除选中</value>
+  </data>
+  <data name="ButtonRuleExport" xml:space="preserve">
+    <value>导出</value>
+  </data>
+  <data name="ButtonRuleImport" xml:space="preserve">
+    <value>导入</value>
+  </data>
+  <data name="ButtonRuleDesSelected" xml:space="preserve">
+    <value>取消选中</value>
   </data>
 </root>

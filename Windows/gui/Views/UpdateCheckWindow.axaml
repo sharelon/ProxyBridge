@@ -9,7 +9,7 @@
         Width="500" Height="300"
         CanResize="False"
         WindowStartupLocation="CenterOwner"
-        Background="#FF1E1E1E">
+        Background="#FFFFFFFF">
 
     <Design.DataContext>
         <vm:UpdateCheckViewModel/>
@@ -17,12 +17,13 @@
 
     <Grid RowDefinitions="Auto,*,Auto">
         <!-- Header -->
-        <Border Grid.Row="0" Background="#FF252526" BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" Padding="16,12">
+        <Border Grid.Row="0" Background="#FFE6F7FF" BorderBrush="#FF0078D7" BorderThickness="0,0,0,1" Padding="16,12">
             <StackPanel Orientation="Horizontal" Spacing="10">
                 <TextBlock Text="Update Check"
                            FontSize="16"
                            FontWeight="SemiBold"
-                           VerticalAlignment="Center"/>
+                           VerticalAlignment="Center"
+                           Foreground="#FF333333"/>
             </StackPanel>
         </Border>
 
@@ -32,17 +33,17 @@
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <TextBlock Text="Current Version:"
                            FontWeight="Medium"
-                           Foreground="#FFB0B0B0"
+                           Foreground="#FF666666"
                            Width="120"/>
                 <TextBlock Text="{Binding CurrentVersion}"
-                           Foreground="#FF007ACC"/>
+                           Foreground="#FF0078D7"/>
             </StackPanel>
 
             <!-- Latest Version -->
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <TextBlock Text="Latest Version:"
                            FontWeight="Medium"
-                           Foreground="#FFB0B0B0"
+                           Foreground="#FF666666"
                            Width="120"/>
                 <TextBlock Text="{Binding LatestVersion}"
                            Foreground="{Binding LatestVersionColor}"/>
@@ -58,33 +59,33 @@
 
             <!-- Loading indicator -->
             <TextBlock Text="Checking for updates..."
-                       Foreground="#FFB0B0B0"
+                       Foreground="#FF666666"
                        HorizontalAlignment="Center"
                        IsVisible="{Binding IsChecking}"/>
 
             <!-- Download Progress -->
             <StackPanel Spacing="8" IsVisible="{Binding IsDownloading}">
                 <TextBlock Text="{Binding DownloadStatus}"
-                           Foreground="#FF007ACC"
+                           Foreground="#FF0078D7"
                            HorizontalAlignment="Center"/>
                 <ProgressBar Value="{Binding DownloadProgress}"
                              Minimum="0"
                              Maximum="100"
                              Height="6"
-                             Background="#FF3C3C3C"
-                             Foreground="#FF007ACC"/>
+                             Background="#FFECECEC"
+                             Foreground="#FF0078D7"/>
             </StackPanel>
 
             <!-- Error message -->
             <TextBlock Text="{Binding ErrorMessage}"
-                       Foreground="#FFFF6B6B"
+                       Foreground="#FFE74C3C"
                        HorizontalAlignment="Center"
                        TextWrapping="Wrap"
                        IsVisible="{Binding HasError}"/>
         </StackPanel>
 
         <!-- Buttons -->
-        <Border Grid.Row="2" Background="#FF252526" BorderBrush="#FF007ACC" BorderThickness="0,1,0,0" Padding="16,12">
+        <Border Grid.Row="2" Background="#FFECECEC" BorderBrush="#FF0078D7" BorderThickness="0,1,0,0" Padding="16,12">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
                 <!-- Download Now Button (only visible when update is available) -->
                 <Button Content="Download Now"
@@ -98,14 +99,14 @@
                 <Button Content="Check Again"
                         Command="{Binding CheckUpdatesCommand}"
                         IsEnabled="{Binding !IsChecking}"
-                        Background="#FF007ACC"
+                        Background="#FF0078D7"
                         Foreground="White"
                         Padding="16,6"
                         CornerRadius="3"/>
                 <Button Content="Close"
                         Command="{Binding CloseCommand}"
-                        Background="#FF3C3C3C"
-                        Foreground="White"
+                        Background="#FFECECEC"
+                        Foreground="#FF333333"
                         Padding="16,6"
                         CornerRadius="3"/>
             </StackPanel>

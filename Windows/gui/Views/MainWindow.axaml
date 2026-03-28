@@ -12,40 +12,46 @@
         Icon="/Assets/logo.ico"
         Width="1100" Height="650"
         MinWidth="900" MinHeight="600"
-        Background="#1E1E1E"
+        Background="#FFFFFF"
         TransparencyLevelHint="AcrylicBlur"
-        ExtendClientAreaToDecorationsHint="True">
+        ExtendClientAreaToDecorationsHint="False">
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
     <Window.Styles>
-        <!-- Modern Dark Theme -->
+        <!-- Modern Light Theme -->
         <Style Selector="Window">
-            <Setter Property="Background" Value="#FF1E1E1E"/>
+            <Setter Property="Background" Value="#FFFFFFFF"/>
         </Style>
+        
 
+        
         <!-- Menu Styling -->
-        <Style Selector="Menu">
-            <Setter Property="Background" Value="#FF2D2D30"/>
-            <Setter Property="Foreground" Value="#FFE0E0E0"/>
+      <!--  <Style Selector="Menu">
+            <Setter Property="Background" Value="#e6f7ff"/>
+            <Setter Property="Foreground" Value="#FF333333"/>
             <Setter Property="Height" Value="30"/>
         </Style>
 
         <Style Selector="MenuItem">
-            <Setter Property="Foreground" Value="#FFE0E0E0"/>
+            <Setter Property="Foreground" Value="#FF333333"/>
             <Setter Property="Padding" Value="12,6"/>
             <Setter Property="Height" Value="30"/>
         </Style>
 
         <Style Selector="MenuItem:pointerover /template/ Border#PART_LayoutRoot">
-            <Setter Property="Background" Value="#FF3E3E42"/>
+            <Setter Property="Background" Value="#FFE6F7FF"/>
         </Style>
 
         <Style Selector="MenuItem:selected /template/ Border#PART_LayoutRoot">
-            <Setter Property="Background" Value="#FF094771"/>
+            <Setter Property="Background" Value="#FF0078D7"/>
         </Style>
+
+        <Style Selector="MenuItem:selected">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>-->
 
         <!-- Tab Control -->
         <Style Selector="TabControl">
@@ -53,47 +59,46 @@
         </Style>
 
         <Style Selector="TabItem">
-            <Setter Property="Foreground" Value="#FF9E9E9E"/>
+            <Setter Property="Foreground" Value="#FF666666"/>
             <Setter Property="FontSize" Value="13"/>
             <Setter Property="Padding" Value="16,8"/>
             <Setter Property="MinHeight" Value="36"/>
         </Style>
 
         <Style Selector="TabItem:selected">
-            <Setter Property="Foreground" Value="#FFFFFFFF"/>
-            <Setter Property="Background" Value="#FF2D2D30"/>
+            <Setter Property="Foreground" Value="#FF0078D7"/>
+            <Setter Property="Background" Value="#FFECECEC"/>
         </Style>
 
         <Style Selector="TabItem:pointerover">
-            <Setter Property="Foreground" Value="#FFCCCCCC"/>
+            <Setter Property="Foreground" Value="#FF333333"/>
         </Style>
 
         <!-- TextBox Styling -->
         <Style Selector="TextBox">
-            <Setter Property="Background" Value="#FF1E1E1E"/>
-            <Setter Property="Foreground" Value="#FFD4D4D4"/>
-            <Setter Property="BorderBrush" Value="#FF3F3F46"/>
+            <Setter Property="Background" Value="#FFFFFFFF"/>
+            <Setter Property="Foreground" Value="#FF333333"/>
+            <Setter Property="BorderBrush" Value="#FFCCCCCC"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Padding" Value="8"/>
-            <Setter Property="FontFamily" Value="Consolas,Courier New"/>
             <Setter Property="FontSize" Value="13"/>
-            <Setter Property="SelectionBrush" Value="#FF264F78"/>
-            <Setter Property="SelectionForegroundBrush" Value="#FFFFFFFF"/>
+            <Setter Property="SelectionBrush" Value="#FFE6F7FF"/>
+            <Setter Property="SelectionForegroundBrush" Value="#FF333333"/>
         </Style>
 
         <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
-            <Setter Property="BorderBrush" Value="#FF007ACC"/>
+            <Setter Property="BorderBrush" Value="#FF0078D7"/>
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
 
         <Style Selector="TextBox:pointerover /template/ Border#PART_BorderElement">
-            <Setter Property="BorderBrush" Value="#FF555555"/>
+            <Setter Property="BorderBrush" Value="#FF999999"/>
         </Style>
 
         <!-- Button Styling -->
         <Style Selector="Button">
-            <Setter Property="Background" Value="#FF0E639C"/>
-            <Setter Property="Foreground" Value="#FFFFFFFF"/>
+            <Setter Property="Background" Value="#FF0078D7"/>
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Padding" Value="16,8"/>
             <Setter Property="FontSize" Value="13"/>
@@ -102,7 +107,7 @@
         </Style>
 
         <Style Selector="Button:pointerover /template/ ContentPresenter">
-            <Setter Property="Background" Value="#FF1177BB"/>
+            <Setter Property="Background" Value="#FF106EBE"/>
         </Style>
 
         <Style Selector="Button:pressed /template/ ContentPresenter">
@@ -110,11 +115,12 @@
         </Style>
 
         <Style Selector="Button.secondary">
-            <Setter Property="Background" Value="#FF3E3E42"/>
+            <Setter Property="Background" Value="#FFECECEC"/>
+            <Setter Property="Foreground" Value="#FF333333"/>
         </Style>
 
         <Style Selector="Button.secondary:pointerover /template/ ContentPresenter">
-            <Setter Property="Background" Value="#FF505050"/>
+            <Setter Property="Background" Value="#FFE0E0E0"/>
         </Style>
 
         <Style Selector="Button.close">
@@ -127,17 +133,18 @@
 
         <Style Selector="Button.close:pointerover /template/ ContentPresenter">
             <Setter Property="Background" Value="#FFE81123"/>
+            <Setter Property="Foreground" Value="White"/>
         </Style>
 
         <!-- CheckBox -->
         <Style Selector="CheckBox">
-            <Setter Property="Foreground" Value="#FFD4D4D4"/>
+            <Setter Property="Foreground" Value="#FF333333"/>
         </Style>
 
         <!-- ListBox -->
         <Style Selector="ListBox">
-            <Setter Property="Background" Value="#FF252526"/>
-            <Setter Property="BorderBrush" Value="#FF3F3F46"/>
+            <Setter Property="Background" Value="#FFFFFFFF"/>
+            <Setter Property="BorderBrush" Value="#FFCCCCCC"/>
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
 
@@ -147,32 +154,33 @@
         </Style>
 
         <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
-            <Setter Property="Background" Value="#FF094771"/>
+            <Setter Property="Background" Value="#FFE6F7FF"/>
+            <Setter Property="Foreground" Value="#FF333333"/>
         </Style>
 
         <Style Selector="ListBoxItem:pointerover /template/ ContentPresenter">
-            <Setter Property="Background" Value="#FF2A2D2E"/>
+            <Setter Property="Background" Value="#FFECECEC"/>
         </Style>
 
         <!-- ComboBox -->
         <Style Selector="ComboBox">
-            <Setter Property="Background" Value="#FF3C3C3C"/>
-            <Setter Property="Foreground" Value="#FFD4D4D4"/>
-            <Setter Property="BorderBrush" Value="#FF3F3F46"/>
+            <Setter Property="Background" Value="#FFFFFFFF"/>
+            <Setter Property="Foreground" Value="#FF333333"/>
+            <Setter Property="BorderBrush" Value="#FFCCCCCC"/>
             <Setter Property="Padding" Value="8"/>
         </Style>
 
         <Style Selector="ComboBox:pointerover /template/ Border#Background">
-            <Setter Property="BorderBrush" Value="#FF555555"/>
+            <Setter Property="BorderBrush" Value="#FF999999"/>
         </Style>
 
         <Style Selector="ComboBox:focus /template/ Border#Background">
-            <Setter Property="BorderBrush" Value="#FF007ACC"/>
+            <Setter Property="BorderBrush" Value="#FF0078D7"/>
         </Style>
 
         <!-- TextBlock -->
         <Style Selector="TextBlock">
-            <Setter Property="Foreground" Value="#FFD4D4D4"/>
+            <Setter Property="Foreground" Value="#FF333333"/>
         </Style>
 
         <Style Selector="TextBlock.label">
@@ -181,7 +189,7 @@
         </Style>
 
         <Style Selector="TextBlock.secondary">
-            <Setter Property="Foreground" Value="#FF9E9E9E"/>
+            <Setter Property="Foreground" Value="#FF666666"/>
         </Style>
     </Window.Styles>
 
@@ -189,18 +197,10 @@
         <!-- Main Content -->
         <DockPanel>
             <!-- Title Bar (Custom) -->
-            <Border DockPanel.Dock="Top" Background="#FF2D2D30" Height="32" IsHitTestVisible="False">
-                <Grid>
-                    <TextBlock Text="ProxyBridge"
-                               Foreground="#FFE0E0E0"
-                               FontSize="12"
-                               VerticalAlignment="Center"
-                               Margin="12,0,0,0"/>
-                </Grid>
-            </Border>
+            <Border DockPanel.Dock="Top" Background="#0078d7" Height="0" IsHitTestVisible="false"/>
 
             <!-- Menu Bar -->
-            <Menu DockPanel.Dock="Top" Background="#FF2D2D30">
+            <Menu DockPanel.Dock="Top" Background="#e6f7ff">
                 <MenuItem Header="{Binding Loc.MenuProxy}">
                     <MenuItem Header="{Binding Loc.MenuProxySettings}" Command="{Binding ShowProxySettingsCommand}"/>
                     <MenuItem Header="{Binding Loc.MenuProxyRules}" Command="{Binding ShowProxyRulesCommand}"/>
@@ -249,16 +249,17 @@
                     </MenuItem>
                     <Separator/>
                     <MenuItem Header="{Binding Loc.MenuLanguage}">
+                        <MenuItem Header="中文 (Chinese)" Click="OnChangeLanguageChinese">
+                            <MenuItem.Icon>
+                                <TextBlock Text="{Binding ChineseCheckmark}" FontSize="14"/>
+                            </MenuItem.Icon>
+                        </MenuItem> 
                         <MenuItem Header="English" Click="OnChangeLanguageEnglish">
                             <MenuItem.Icon>
                                 <TextBlock Text="{Binding EnglishCheckmark}" FontSize="14"/>
                             </MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="中文 (Chinese)" Click="OnChangeLanguageChinese">
-                            <MenuItem.Icon>
-                                <TextBlock Text="{Binding ChineseCheckmark}" FontSize="14"/>
-                            </MenuItem.Icon>
-                        </MenuItem>
+                      
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="{Binding Loc.MenuAbout}">
@@ -268,16 +269,16 @@
             </Menu>
 
             <!-- Tab Control -->
-            <TabControl SelectedIndex="{Binding SelectedTabIndex}" Background="#FF1E1E1E" Padding="0">
+            <TabControl SelectedIndex="{Binding SelectedTabIndex}" Background="#FFFFFFFF" Padding="0">
                 <TabItem Header="{Binding Loc.TabConnections}">
-                    <Border Background="#FF252526" Margin="8" CornerRadius="4" BorderBrush="#FF3F3F46" BorderThickness="1">
+                    <Border Background="#FFECECEC" Margin="8" CornerRadius="4" BorderBrush="#FFCCCCCC" BorderThickness="1">
                         <DockPanel>
                             <!-- Search and Clear Bar -->
-                            <Border DockPanel.Dock="Top" Background="#FF1E1E1E" Padding="8" BorderBrush="#FF3F3F46" BorderThickness="0,0,0,1">
+                            <Border DockPanel.Dock="Top" Background="#FFFFFFFF" Padding="8" BorderBrush="#FFCCCCCC" BorderThickness="0,0,0,1">
                                 <Grid ColumnDefinitions="*,Auto">
                                     <TextBox Grid.Column="0"
                                              Text="{Binding ConnectionsSearchText}"
-                                             Watermark="Search connections (press Enter)..."
+                                             Watermark=""
                                              Margin="0,0,8,0">
                                         <TextBox.KeyBindings>
                                             <KeyBinding Gesture="Enter" Command="{Binding SearchConnectionsCommand}"/>
@@ -299,21 +300,21 @@
                                          TextWrapping="Wrap"
                                          Background="Transparent"
                                          BorderThickness="0"
-                                         Watermark="No active connections..."
+                                         Watermark=""
                                          MinHeight="500"/>
                             </ScrollViewer>
                         </DockPanel>
                     </Border>
                 </TabItem>
                 <TabItem Header="{Binding Loc.TabActivity}">
-                    <Border Background="#FF252526" Margin="8" CornerRadius="4" BorderBrush="#FF3F3F46" BorderThickness="1">
+                    <Border Background="#FFECECEC" Margin="8" CornerRadius="4" BorderBrush="#FFCCCCCC" BorderThickness="1">
                         <DockPanel>
                             <!-- Search and Clear Bar -->
-                            <Border DockPanel.Dock="Top" Background="#FF1E1E1E" Padding="8" BorderBrush="#FF3F3F46" BorderThickness="0,0,0,1">
+                            <Border DockPanel.Dock="Top" Background="#FFFFFFFF" Padding="8" BorderBrush="#FFCCCCCC" BorderThickness="0,0,0,1">
                                 <Grid ColumnDefinitions="*,Auto">
                                     <TextBox Grid.Column="0"
                                              Text="{Binding ActivitySearchText}"
-                                             Watermark="Search activity (press Enter)..."
+                                             Watermark=""
                                              Margin="0,0,8,0">
                                         <TextBox.KeyBindings>
                                             <KeyBinding Gesture="Enter" Command="{Binding SearchActivityCommand}"/>

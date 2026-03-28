@@ -93,7 +93,7 @@ public static class ConfigManager
 {
     private static readonly string ConfigDirectory = Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-        "ProxyBridge"
+        "CloudSmartIP"
     );
 
     private static readonly string ConfigFilePath = Path.Combine(ConfigDirectory, "config.json");

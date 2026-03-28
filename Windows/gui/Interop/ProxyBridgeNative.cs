@@ -7,7 +7,7 @@ namespace ProxyBridge.GUI.Interop;
 
 public static class ProxyBridgeNative
 {
-    private const string DllName = "ProxyBridgeCore.dll";
+    private const string DllName = "CloudSmartIPCore.dll";
 
     static ProxyBridgeNative()
     {

@@ -20,7 +20,7 @@ public class ProxySettingsViewModel : ViewModelBase
     private string _ipError = "";
     private string _portError = "";
     private bool _isTestViewOpen = false;
-    private string _testTargetHost = "google.com";
+    private string _testTargetHost = "baidu.com";
     private string _testTargetPort = "80";
     private string _testOutput = "";
     private bool _isTesting = false;

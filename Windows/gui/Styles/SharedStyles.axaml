@@ -2,45 +2,50 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style Selector="TextBlock.label">
-        <Setter Property="Foreground" Value="#FFE0E0E0"/>
+        <Setter Property="Foreground" Value="#FF333333"/>
         <Setter Property="FontSize" Value="13"/>
         <Setter Property="FontWeight" Value="Medium"/>
     </Style>
 
+    <Style Selector="TextBlock">
+        <Setter Property="FontFamily" Value="Segoe UI, Microsoft YaHei, SimSun, sans-serif"/>
+    </Style>
+
     <Style Selector="TextBlock.error">
-        <Setter Property="Foreground" Value="#FFF48771"/>
+        <Setter Property="Foreground" Value="#FFE74C3C"/>
         <Setter Property="FontSize" Value="12"/>
         <Setter Property="Margin" Value="0,4,0,0"/>
     </Style>
 
     <Style Selector="TextBlock.secondary">
-        <Setter Property="Foreground" Value="#FF999999"/>
+        <Setter Property="Foreground" Value="#FF666666"/>
     </Style>
 
     <Style Selector="TextBox">
-        <Setter Property="Background" Value="#FF1E1E1E"/>
-        <Setter Property="Foreground" Value="#FFE0E0E0"/>
-        <Setter Property="BorderBrush" Value="#FF3F3F46"/>
+        <Setter Property="Background" Value="#FFFFFFFF"/>
+        <Setter Property="Foreground" Value="#FF333333"/>
+        <Setter Property="BorderBrush" Value="#FFCCCCCC"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Padding" Value="10,8"/>
-        <Setter Property="FontFamily" Value="Consolas,monospace"/>
         <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontFamily" Value="Segoe UI, Microsoft YaHei, SimSun, sans-serif"/>
     </Style>
 
     <Style Selector="TextBox:focus">
-        <Setter Property="BorderBrush" Value="#FF007ACC"/>
+        <Setter Property="BorderBrush" Value="#FF0078D7"/>
     </Style>
 
     <Style Selector="ComboBox">
-        <Setter Property="Background" Value="#FF1E1E1E"/>
-        <Setter Property="Foreground" Value="#FFE0E0E0"/>
-        <Setter Property="BorderBrush" Value="#FF3F3F46"/>
+        <Setter Property="Background" Value="#FFFFFFFF"/>
+        <Setter Property="Foreground" Value="#FF333333"/>
+        <Setter Property="BorderBrush" Value="#FFCCCCCC"/>
         <Setter Property="Padding" Value="10,8"/>
+        <Setter Property="FontFamily" Value="Segoe UI, Microsoft YaHei, SimSun, sans-serif"/>
     </Style>
 
     <Style Selector="ListBox">
-        <Setter Property="Background" Value="#FF252526"/>
-        <Setter Property="BorderBrush" Value="#FF3F3F46"/>
+        <Setter Property="Background" Value="#FFFFFFFF"/>
+        <Setter Property="BorderBrush" Value="#FFCCCCCC"/>
     </Style>
 
     <Style Selector="ListBoxItem">
@@ -50,36 +55,38 @@
     </Style>
 
     <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
-        <Setter Property="Background" Value="#FF094771"/>
+        <Setter Property="Background" Value="#FFE6F7FF"/>
     </Style>
 
     <Style Selector="ListBoxItem:pointerover /template/ ContentPresenter">
-        <Setter Property="Background" Value="#FF2A2D2E"/>
+        <Setter Property="Background" Value="#FFECECEC"/>
     </Style>
 
     <Style Selector="CheckBox">
-        <Setter Property="Foreground" Value="#FFE0E0E0"/>
+        <Setter Property="Foreground" Value="#FF333333"/>
     </Style>
 
     <Style Selector="Button">
-        <Setter Property="Background" Value="#FF0E639C"/>
+        <Setter Property="Background" Value="#FF0078D7"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Padding" Value="16,8"/>
         <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontFamily" Value="Segoe UI, Microsoft YaHei, SimSun, sans-serif"/>
         <Setter Property="Cursor" Value="Hand"/>
     </Style>
 
     <Style Selector="Button:pointerover">
-        <Setter Property="Background" Value="#FF1177BB"/>
+        <Setter Property="Background" Value="#FF106EBE"/>
     </Style>
 
     <Style Selector="Button.secondary">
-        <Setter Property="Background" Value="#FF3E3E42"/>
+        <Setter Property="Background" Value="#FFECECEC"/>
+        <Setter Property="Foreground" Value="#FF333333"/>
     </Style>
 
     <Style Selector="Button.secondary:pointerover">
-        <Setter Property="Background" Value="#FF4E4E52"/>
+        <Setter Property="Background" Value="#FFE0E0E0"/>
     </Style>
 
 </Styles>

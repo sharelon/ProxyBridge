@@ -4,12 +4,12 @@
         x:Class="ProxyBridge.GUI.Views.AboutWindow"
         x:DataType="vm:AboutViewModel"
         x:CompileBindings="True"
-        Title="About ProxyBridge"
+        Title="About CloudSmartIP"
         Icon="/Assets/logo.ico"
         Width="500" Height="400"
         CanResize="False"
         WindowStartupLocation="CenterOwner"
-        Background="#FF1E1E1E">
+        Background="#FFFFFFFF">
 
     <Design.DataContext>
         <vm:AboutViewModel/>
@@ -17,13 +17,14 @@
 
     <Grid RowDefinitions="Auto,*">
         <!-- Header -->
-        <Border Grid.Row="0" Background="#FF252526" BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" Padding="20,16">
+        <Border Grid.Row="0" Background="#FFE6F7FF" BorderBrush="#FF0078D7" BorderThickness="0,0,0,1" Padding="20,16">
             <StackPanel Orientation="Horizontal" Spacing="12">
-                <TextBlock Text="ℹ" FontSize="24" Foreground="#FF007ACC" VerticalAlignment="Center"/>
+                <TextBlock Text="ℹ" FontSize="24" Foreground="#FF0078D7" VerticalAlignment="Center"/>
                 <TextBlock Text="About ProxyBridge"
                            FontSize="18"
                            FontWeight="SemiBold"
-                           VerticalAlignment="Center"/>
+                           VerticalAlignment="Center"
+                           Foreground="#FF333333"/>
             </StackPanel>
         </Border>
 
@@ -33,17 +34,17 @@
                        FontSize="28"
                        FontWeight="Bold"
                        HorizontalAlignment="Center"
-                       Foreground="#FF007ACC"/>
+                       Foreground="#FF0078D7"/>
 
             <TextBlock Text="{Binding Version}"
                        FontSize="14"
                        HorizontalAlignment="Center"
-                       Foreground="#FFB0B0B0"/>
+                       Foreground="#FF666666"/>
 
             <TextBlock Text="Universal proxy client for Windows applications"
                        FontSize="14"
                        HorizontalAlignment="Center"
-                       Foreground="#FFB0B0B0"
+                       Foreground="#FF666666"
                        TextWrapping="Wrap"
                        Margin="0,0,0,8"/>
 
@@ -51,24 +52,24 @@
             <TextBlock Text="Author: Sourav Kalal / InterceptSuite"
                        FontSize="13"
                        HorizontalAlignment="Center"
-                       Foreground="#FFB0B0B0"
+                       Foreground="#FF666666"
                        Margin="0,4,0,0"/>
 
             <!-- Clickable Links -->
             <StackPanel Spacing="12">
                 <TextBlock HorizontalAlignment="Center">
-                    <Run Text="Website: " Foreground="#FFB0B0B0"/>
+                    <Run Text="Website: " Foreground="#FF666666"/>
                     <TextBlock Text="interceptsuite.com"
-                               Foreground="#FF007ACC"
+                               Foreground="#FF0078D7"
                                TextDecorations="Underline"
                                Cursor="Hand"
                                PointerPressed="OnWebsiteClick"/>
                 </TextBlock>
 
                 <TextBlock HorizontalAlignment="Center">
-                    <Run Text="GitHub: " Foreground="#FFB0B0B0"/>
+                    <Run Text="GitHub: " Foreground="#FF666666"/>
                     <TextBlock Text="github.com/InterceptSuite/ProxyBridge"
-                               Foreground="#FF007ACC"
+                               Foreground="#FF0078D7"
                                TextDecorations="Underline"
                                Cursor="Hand"
                                PointerPressed="OnGitHubClick"/>
@@ -78,7 +79,7 @@
             <TextBlock Text="License: MIT"
                        FontSize="13"
                        HorizontalAlignment="Center"
-                       Foreground="#FFB0B0B0"
+                       Foreground="#FF666666"
                        Margin="0,8,0,0"/>
 
         </StackPanel>

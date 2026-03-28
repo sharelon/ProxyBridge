@@ -128,4 +128,29 @@ public class Loc : INotifyPropertyChanged
     public string ActionDirect => Resources.Resources.ActionDirect;
     public string ActionBlock => Resources.Resources.ActionBlock;
     public string SaveRuleButton => Resources.Resources.ButtonSaveRule;
+
+
+
+    public string AddRuleFailInfo => Resources.Resources.AddRuleFailInfo;
+    public string LoadConfigFailInfo => Resources.Resources.LoadConfigFailInfo;
+    public string LoadConfigSuccessInfo => Resources.Resources.LoadConfigSuccessInfo;
+    public string SetProxyConfigFail => Resources.Resources.SetProxyConfigFail;
+    public string StartProxyFail => Resources.Resources.StartProxyFail;
+
+    public string ButtonRuleSelectAll => Resources.Resources.ButtonRuleSelectAll;
+    public string ButtonRuleDesSelected => Resources.Resources.ButtonRuleDesSelected;
+
+
+    public string ButtonRuleDelSelected => Resources.Resources.ButtonRuleDelSelected;
+
+    public string ButtonRuleExport => Resources.Resources.ButtonRuleExport;
+
+    public string ButtonRuleImport => Resources.Resources.ButtonRuleImport;
+
+
+
+
+
+
+
 }

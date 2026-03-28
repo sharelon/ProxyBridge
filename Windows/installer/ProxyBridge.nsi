@@ -1,7 +1,7 @@
-!define PRODUCT_NAME "ProxyBridge"
+!define PRODUCT_NAME "CloudSmartIP"
 !define PRODUCT_VERSION "3.2.0"
-!define PRODUCT_PUBLISHER "InterceptSuite"
-!define PRODUCT_WEB_SITE "https://github.com/InterceptSuite/ProxyBridge"
+!define PRODUCT_PUBLISHER "CloudSmartIP"
+!define PRODUCT_WEB_SITE ""
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 
@@ -23,7 +23,7 @@ SetCompressor /SOLID lzma
 SetCompressorDictSize 64
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "ProxyBridge-Setup-${PRODUCT_VERSION}.exe"
+OutFile "CloudSmartIP-Setup-${PRODUCT_VERSION}.exe"
 InstallDir "$PROGRAMFILES64\${PRODUCT_NAME}"
 InstallDirRegKey HKLM "${PRODUCT_UNINST_KEY}" "InstallLocation"
 RequestExecutionLevel admin
@@ -47,9 +47,9 @@ Section "MainSection" SEC01
   SetOutPath "$INSTDIR"
   SetOverwrite on
 
-  File "..\output\ProxyBridge.exe"
-  File "..\output\ProxyBridge_CLI.exe"
-  File "..\output\ProxyBridgeCore.dll"
+  File "..\output\CloudSmartIP.exe"
+  ; File "..\output\ProxyBridge_CLI.exe"
+  File "..\output\CloudSmartIPCore.dll"
   File "..\output\WinDivert.dll"
   File "..\output\WinDivert64.sys"
   File "..\output\av_libglesv2.dll"
@@ -57,8 +57,8 @@ Section "MainSection" SEC01
   File "..\output\libSkiaSharp.dll"
 
   CreateDirectory "$SMPROGRAMS\${PRODUCT_NAME}"
-  CreateShortCut "$SMPROGRAMS\${PRODUCT_NAME}\${PRODUCT_NAME}.lnk" "$INSTDIR\ProxyBridge.exe"
-  CreateShortCut "$DESKTOP\${PRODUCT_NAME}.lnk" "$INSTDIR\ProxyBridge.exe"
+  CreateShortCut "$SMPROGRAMS\${PRODUCT_NAME}\${PRODUCT_NAME}.lnk" "$INSTDIR\CloudSmartIP.exe"
+  CreateShortCut "$DESKTOP\${PRODUCT_NAME}.lnk" "$INSTDIR\CloudSmartIP.exe"
 
   ; Add to PATH using EnVar plugin
   EnVar::SetHKLM
@@ -73,7 +73,7 @@ Section -Post
   WriteUninstaller "$INSTDIR\uninst.exe"
   WriteRegStr HKLM "${PRODUCT_UNINST_KEY}" "DisplayName" "$(^Name)"
   WriteRegStr HKLM "${PRODUCT_UNINST_KEY}" "UninstallString" "$INSTDIR\uninst.exe"
-  WriteRegStr HKLM "${PRODUCT_UNINST_KEY}" "DisplayIcon" "$INSTDIR\ProxyBridge.exe"
+  WriteRegStr HKLM "${PRODUCT_UNINST_KEY}" "DisplayIcon" "$INSTDIR\CloudSmartIP.exe"
   WriteRegStr HKLM "${PRODUCT_UNINST_KEY}" "DisplayVersion" "${PRODUCT_VERSION}"
   WriteRegStr HKLM "${PRODUCT_UNINST_KEY}" "URLInfoAbout" "${PRODUCT_WEB_SITE}"
   WriteRegStr HKLM "${PRODUCT_UNINST_KEY}" "Publisher" "${PRODUCT_PUBLISHER}"
@@ -81,9 +81,11 @@ Section -Post
 SectionEnd
 
 Section Uninstall
-  Delete "$INSTDIR\ProxyBridge.exe"
-  Delete "$INSTDIR\ProxyBridge_CLI.exe"
-  Delete "$INSTDIR\ProxyBridgeCore.dll"
+  ExecWait '"sc" stop WinDivert'
+  ExecWait '"sc" delete WinDivert'
+  Delete "$INSTDIR\CloudSmartIP.exe"
+  ; Delete "$INSTDIR\ProxyBridge_CLI.exe"
+  Delete "$INSTDIR\CloudSmartIPCore.dll"
   Delete "$INSTDIR\WinDivert.dll"
   Delete "$INSTDIR\WinDivert64.sys"
   Delete "$INSTDIR\av_libglesv2.dll"

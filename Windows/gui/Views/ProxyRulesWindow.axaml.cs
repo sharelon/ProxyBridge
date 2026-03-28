@@ -1,11 +1,12 @@
+using Avalonia.Controls;
+using Avalonia.Data.Converters;
+using Avalonia.Input;
+using Avalonia.Interactivity;
+using ProxyBridge.GUI.Services;
+using ProxyBridge.GUI.ViewModels;
 using System;
 using System.ComponentModel;
 using System.Globalization;
-using Avalonia.Controls;
-using Avalonia.Data.Converters;
-using Avalonia.Interactivity;
-using Avalonia.Input;
-using ProxyBridge.GUI.ViewModels;
 
 namespace ProxyBridge.GUI.Views;
 
@@ -13,7 +14,7 @@ public class SelectAllTextConverter : IValueConverter
 {
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        return value is bool allSelected && allSelected ? "Deselect All" : "Select All";
+        return value is bool allSelected && allSelected ? (Loc.Instance.ButtonRuleDesSelected) :(Loc.Instance.ButtonRuleSelectAll);
     }
 
     public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)

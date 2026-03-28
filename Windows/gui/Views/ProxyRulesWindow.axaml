@@ -12,7 +12,7 @@
         Icon="/Assets/logo.ico"
         Width="1000" Height="550"
         MinWidth="900" MinHeight="400"
-        Background="#FF2D2D30"
+        Background="#FFFFFFFF"
         WindowStartupLocation="CenterOwner">
 
     <Window.Resources>
@@ -22,14 +22,14 @@
 
     <DockPanel>
         <!-- Header -->
-        <Border DockPanel.Dock="Top" Background="#FF1E1E1E" Padding="20,16">
+        <Border DockPanel.Dock="Top" Background="#FFE6F7FF" Padding="20,16">
             <Grid ColumnDefinitions="*,Auto">
                 <StackPanel Orientation="Horizontal" Spacing="10">
                     <TextBlock Text="⚙" FontSize="22" VerticalAlignment="Center"/>
                     <TextBlock Text="{Binding Loc.ProxyRulesTitle}"
                                FontSize="18"
                                FontWeight="SemiBold"
-                               Foreground="#FFE0E0E0"
+                               Foreground="#FF333333"
                                VerticalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Grid.Column="1"
@@ -54,7 +54,7 @@
                             IsEnabled="{Binding HasSelectedRules}">
                         <StackPanel Orientation="Horizontal" Spacing="6">
                             <TextBlock Text="🗑" FontSize="14"/>
-                            <TextBlock Text="Delete Selected"/>
+                            <TextBlock Text="{Binding Loc.ButtonRuleDelSelected}"/>
                         </StackPanel>
                     </Button>
                     <Button Command="{Binding ExportRulesCommand}"
@@ -63,7 +63,7 @@
                             IsEnabled="{Binding HasSelectedRules}">
                         <StackPanel Orientation="Horizontal" Spacing="6">
                             <TextBlock Text="↑" FontSize="14"/>
-                            <TextBlock Text="Export"/>
+                            <TextBlock Text="{Binding Loc.ButtonRuleExport}"/>
                         </StackPanel>
                     </Button>
                     <Button Command="{Binding ImportRulesCommand}"
@@ -71,7 +71,7 @@
                             Padding="12,8">
                         <StackPanel Orientation="Horizontal" Spacing="6">
                             <TextBlock Text="↓" FontSize="14"/>
-                            <TextBlock Text="Import"/>
+                            <TextBlock Text="{Binding Loc.ButtonRuleImport}"/>
                         </StackPanel>
                     </Button>
                     <Button Content="{Binding Loc.ButtonAdd}"
@@ -89,64 +89,64 @@
 
             <!-- Table Header -->
             <Border Grid.Row="0"
-                    Background="#FF1E1E1E"
-                    BorderBrush="#FF3F3F46"
+                    Background="#FFECECEC"
+                    BorderBrush="#FFCCCCCC"
                     BorderThickness="0,1,0,1"
                     Padding="20,12">
                 <Grid ColumnDefinitions="60,80,140,60,200,150,120,80,*">
                     <TextBlock Grid.Column="0"
-                               Text="Select"
+                               Text=""
                                FontSize="13"
                                FontWeight="SemiBold"
-                               Foreground="#FFB0B0B0"
+                               Foreground="#FF666666"
                                Margin="0,0,10,0"/>
                     <TextBlock Grid.Column="1"
                                Text="{Binding Loc.EnabledLabel}"
                                FontSize="13"
                                FontWeight="SemiBold"
-                               Foreground="#FFB0B0B0"
+                               Foreground="#FF666666"
                                Margin="0,0,10,0"/>
                     <TextBlock Grid.Column="2"
                                Text="{Binding Loc.ActionsLabel}"
                                FontSize="13"
                                FontWeight="SemiBold"
-                               Foreground="#FFB0B0B0"
+                               Foreground="#FF666666"
                                Margin="0,0,10,0"/>
                     <TextBlock Grid.Column="3"
                                Text="{Binding Loc.SRLabel}"
                                FontSize="13"
                                FontWeight="SemiBold"
-                               Foreground="#FFB0B0B0"
+                               Foreground="#FF666666"
                                Margin="0,0,10,0"/>
                     <TextBlock Grid.Column="4"
                                Text="{Binding Loc.ProcessLabel}"
                                FontSize="13"
                                FontWeight="SemiBold"
-                               Foreground="#FFB0B0B0"
+                               Foreground="#FF666666"
                                Margin="0,0,10,0"/>
                     <TextBlock Grid.Column="5"
                                Text="{Binding Loc.TargetHostsLabel}"
                                FontSize="13"
                                FontWeight="SemiBold"
-                               Foreground="#FFB0B0B0"
+                               Foreground="#FF666666"
                                Margin="0,0,10,0"/>
                     <TextBlock Grid.Column="6"
                                Text="{Binding Loc.TargetPortsLabel}"
                                FontSize="13"
                                FontWeight="SemiBold"
-                               Foreground="#FFB0B0B0"
+                               Foreground="#FF666666"
                                Margin="0,0,10,0"/>
                     <TextBlock Grid.Column="7"
                                Text="{Binding Loc.ProtocolLabel}"
                                FontSize="13"
                                FontWeight="SemiBold"
-                               Foreground="#FFB0B0B0"
+                               Foreground="#FF666666"
                                Margin="0,0,10,0"/>
                     <TextBlock Grid.Column="8"
                                Text="{Binding Loc.ActionLabel}"
                                FontSize="13"
                                FontWeight="SemiBold"
-                               Foreground="#FFB0B0B0"/>
+                               Foreground="#FF666666"/>
                 </Grid>
             </Border>
 
@@ -157,8 +157,8 @@
                 <ItemsControl ItemsSource="{Binding ProxyRules}" x:Name="RulesItemsControl">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="#FF252526"
-                                    BorderBrush="#FF3F3F46"
+                            <Border Background="#FFFFFFFF"
+                                    BorderBrush="#FFCCCCCC"
                                     BorderThickness="0,0,0,1"
                                     Padding="20,16"
                                     PointerPressed="Rule_PointerPressed"
@@ -201,35 +201,35 @@
                                                Text="{Binding ProcessName}"
                                                FontSize="14"
                                                FontWeight="Medium"
-                                               Foreground="#FFE0E0E0"
+                                               Foreground="#FF333333"
                                                VerticalAlignment="Center"
                                                TextTrimming="CharacterEllipsis"
                                                Margin="0,0,10,0"/>
                                     <TextBlock Grid.Column="5"
                                                Text="{Binding TargetHosts}"
                                                FontSize="13"
-                                               Foreground="#FF999999"
+                                               Foreground="#FF666666"
                                                VerticalAlignment="Center"
                                                TextTrimming="CharacterEllipsis"
                                                Margin="0,0,10,0"/>
                                     <TextBlock Grid.Column="6"
                                                Text="{Binding TargetPorts}"
                                                FontSize="13"
-                                               Foreground="#FF999999"
+                                               Foreground="#FF666666"
                                                VerticalAlignment="Center"
                                                TextTrimming="CharacterEllipsis"
                                                Margin="0,0,10,0"/>
                                     <TextBlock Grid.Column="7"
                                                Text="{Binding Protocol}"
                                                FontSize="13"
-                                               Foreground="#FF999999"
+                                               Foreground="#FF666666"
                                                VerticalAlignment="Center"
                                                Margin="0,0,10,0"/>
                                     <TextBlock Grid.Column="8"
                                                Text="{Binding Action}"
                                                FontSize="14"
                                                FontWeight="SemiBold"
-                                               Foreground="#FF4EC9B0"
+                                               Foreground="#FF0078D7"
                                                VerticalAlignment="Center"/>
                                 </Grid>
                             </Border>
@@ -261,7 +261,7 @@
                     </Grid>
                     <TextBlock Text="{Binding Loc.ExampleApplications}"
                                FontSize="11"
-                               Foreground="#FF999999"
+                               Foreground="#FF666666"
                                TextWrapping="Wrap"
                                Margin="0,4,0,0"/>
                 </StackPanel>
@@ -273,7 +273,7 @@
                              Watermark="Any"/>
                     <TextBlock Text="{Binding Loc.ExampleTargetHosts}"
                                FontSize="11"
-                               Foreground="#FF999999"
+                               Foreground="#FF666666"
                                TextWrapping="Wrap"
                                Margin="0,4,0,0"/>
                 </StackPanel>
@@ -285,7 +285,7 @@
                              Watermark="Any"/>
                     <TextBlock Text="{Binding Loc.ExampleTargetPorts}"
                                FontSize="11"
-                               Foreground="#FF999999"
+                               Foreground="#FF666666"
                                TextWrapping="Wrap"
                                Margin="0,4,0,0"/>
                 </StackPanel>

@@ -83,6 +83,18 @@ typedef struct PID_CACHE_ENTRY {
     struct PID_CACHE_ENTRY *next;
 } PID_CACHE_ENTRY;
 
+#define DNS_CACHE_SIZE 256
+#define DNS_CACHE_TTL_MS 60000
+
+typedef struct DNS_CACHE_ENTRY {
+    char hostname[256];
+    UINT32 ip;
+    ULONGLONG timestamp;
+    struct DNS_CACHE_ENTRY *next;
+} DNS_CACHE_ENTRY;
+
+static DNS_CACHE_ENTRY *dns_cache[DNS_CACHE_SIZE] = {NULL};
+
 static CONNECTION_INFO *connection_hash_table[CONNECTION_HASH_SIZE] = {NULL};
 static LOGGED_CONNECTION *logged_connections = NULL;
 static PROCESS_RULE *rules_list = NULL;
@@ -244,6 +256,7 @@ static BOOL is_broadcast_or_multicast(UINT32 ip);
 static DWORD get_cached_pid(UINT32 src_ip, UINT16 src_port, BOOL is_udp);
 static void cache_pid(UINT32 src_ip, UINT16 src_port, DWORD pid, BOOL is_udp);
 static void clear_pid_cache(void);
+static void clear_dns_cache(void);
 static void update_has_active_rules(void);
 
 
@@ -619,21 +632,52 @@ static UINT32 parse_ipv4(const char *ip)
     return (a << 0) | (b << 8) | (c << 16) | (d << 24);
 }
 
-// Resolve hostname to IPv4 address (supports both IP addresses and domain names)
+static UINT32 dns_cache_hash(const char *hostname)
+{
+    UINT32 hash = 0;
+    while (*hostname)
+    {
+        hash = hash * 31 + (unsigned char)tolower(*hostname);
+        hostname++;
+    }
+    return hash % DNS_CACHE_SIZE;
+}
+
 static UINT32 resolve_hostname(const char *hostname)
 {
     if (hostname == NULL || hostname[0] == '\0')
         return 0;
 
-    // First try to parse as IP address
     UINT32 ip = parse_ipv4(hostname);
     if (ip != 0)
         return ip;
 
-    // Not an IP address, try DNS resolution
+    UINT32 hash = dns_cache_hash(hostname);
+    ULONGLONG now = GetTickCount64();
+
+    WaitForSingleObject(lock, INFINITE);
+
+    DNS_CACHE_ENTRY *entry = dns_cache[hash];
+    while (entry != NULL)
+    {
+        if (_stricmp(entry->hostname, hostname) == 0)
+        {
+            if (now - entry->timestamp < DNS_CACHE_TTL_MS)
+            {
+                UINT32 cached_ip = entry->ip;
+                ReleaseMutex(lock);
+                return cached_ip;
+            }
+            break;
+        }
+        entry = entry->next;
+    }
+
+    ReleaseMutex(lock);
+
     struct addrinfo hints, *result = NULL;
     memset(&hints, 0, sizeof(hints));
-    hints.ai_family = AF_INET;  // IPv4 only
+    hints.ai_family = AF_INET;
     hints.ai_socktype = SOCK_STREAM;
 
     if (getaddrinfo(hostname, NULL, &hints, &result) != 0)
@@ -657,6 +701,33 @@ static UINT32 resolve_hostname(const char *hostname)
     log_message("Resolved %s to %d.%d.%d.%d", hostname,
         (resolved_ip >> 0) & 0xFF, (resolved_ip >> 8) & 0xFF,
         (resolved_ip >> 16) & 0xFF, (resolved_ip >> 24) & 0xFF);
+
+    WaitForSingleObject(lock, INFINITE);
+
+    entry = dns_cache[hash];
+    while (entry != NULL)
+    {
+        if (_stricmp(entry->hostname, hostname) == 0)
+        {
+            entry->ip = resolved_ip;
+            entry->timestamp = now;
+            ReleaseMutex(lock);
+            return resolved_ip;
+        }
+        entry = entry->next;
+    }
+
+    DNS_CACHE_ENTRY *new_entry = (DNS_CACHE_ENTRY *)malloc(sizeof(DNS_CACHE_ENTRY));
+    if (new_entry != NULL)
+    {
+        strncpy_s(new_entry->hostname, sizeof(new_entry->hostname), hostname, _TRUNCATE);
+        new_entry->ip = resolved_ip;
+        new_entry->timestamp = now;
+        new_entry->next = dns_cache[hash];
+        dns_cache[hash] = new_entry;
+    }
+
+    ReleaseMutex(lock);
 
     return resolved_ip;
 }
@@ -858,6 +929,14 @@ static BOOL match_ip_pattern(const char *pattern, UINT32 ip)
             return (ip_be >= start_be && ip_be <= end_be);
         }
         return FALSE;
+    }
+
+    // Try to resolve pattern as hostname
+    UINT32 pattern_ip = resolve_hostname(pattern);
+    if (pattern_ip != 0)
+    {
+        // Pattern is a hostname, compare resolved IP with target IP
+        return (pattern_ip == ip);
     }
 
     // Extract 4 octets from IP (little-endian)
@@ -2826,6 +2905,23 @@ static void clear_pid_cache(void)
     ReleaseMutex(lock);
 }
 
+static void clear_dns_cache(void)
+{
+    WaitForSingleObject(lock, INFINITE);
+
+    for (int i = 0; i < DNS_CACHE_SIZE; i++)
+    {
+        while (dns_cache[i] != NULL)
+        {
+            DNS_CACHE_ENTRY *to_free = dns_cache[i];
+            dns_cache[i] = dns_cache[i]->next;
+            free(to_free);
+        }
+    }
+
+    ReleaseMutex(lock);
+}
+
 // Dedicated cleanup thread - runs independently without blocking packet processing
 static DWORD WINAPI cleanup_worker(LPVOID arg)
 {
@@ -3038,6 +3134,7 @@ PROXYBRIDGE_API BOOL ProxyBridge_Stop(void)
     clear_logged_connections();
 
     clear_pid_cache();
+    clear_dns_cache();
 
     log_message("ProxyBridge stopped");
 

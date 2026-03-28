@@ -10,7 +10,7 @@ param(
 $WinDivertPath = "C:\WinDivert-2.2.2-A"
 $SourcePath = "src"
 $SourceFile = "ProxyBridge.c"
-$OutputDLL = "ProxyBridgeCore.dll"
+$OutputDLL = "CloudSmartIPCore.dll"
 $OutputDir = "output"
 
 $SignTool = "signtool.exe"
@@ -212,8 +212,8 @@ if ($success) {
         Write-Host "`nCopying GUI files to output..." -ForegroundColor Green
         $guiPublishPath = "gui\bin\Release\net10.0-windows\win-x64\publish"
 
-        Copy-Item "$guiPublishPath\ProxyBridge.exe" -Destination $OutputDir -Force
-        Write-Host "  Copied: ProxyBridge.exe" -ForegroundColor Gray
+        Copy-Item "$guiPublishPath\CloudSmartIP.exe" -Destination $OutputDir -Force
+        Write-Host "  Copied: CloudSmartIP.exe" -ForegroundColor Gray
 
         Get-ChildItem "$guiPublishPath\*.dll" | ForEach-Object {
             Copy-Item $_.FullName -Destination $OutputDir -Force
@@ -228,34 +228,34 @@ if ($success) {
         Write-Host $publishResult
     }
 
-    Write-Host "`nPublishing CLI..." -ForegroundColor Green
-    $publishResult = dotnet publish cli/ProxyBridge.CLI.csproj -c Release -r win-x64 --self-contained `
-        /p:PublishTrimmed=true `
-        /p:PublishSingleFile=true `
-        /p:EnableCompressionInSingleFile=true `
-        /p:DebugType=None `
-        /p:DebugSymbols=false `
-        /p:Optimize=true `
-        /p:TieredCompilation=true `
-        /p:TieredCompilationQuickJit=false `
-        /p:ReadyToRun=true `
-        -o cli/bin/Release/net10.0-windows/win-x64/publish 2>&1
-    if ($LASTEXITCODE -eq 0) {
-        Write-Host "  CLI published successfully" -ForegroundColor Gray
+    # Write-Host "`nPublishing CLI..." -ForegroundColor Green
+    # $publishResult = dotnet publish cli/ProxyBridge.CLI.csproj -c Release -r win-x64 --self-contained `
+    #     /p:PublishTrimmed=true `
+    #     /p:PublishSingleFile=true `
+    #     /p:EnableCompressionInSingleFile=true `
+    #     /p:DebugType=None `
+    #     /p:DebugSymbols=false `
+    #     /p:Optimize=true `
+    #     /p:TieredCompilation=true `
+    #     /p:TieredCompilationQuickJit=false `
+    #     /p:ReadyToRun=true `
+    #     -o cli/bin/Release/net10.0-windows/win-x64/publish 2>&1
+    # if ($LASTEXITCODE -eq 0) {
+    #     Write-Host "  CLI published successfully" -ForegroundColor Gray
 
-        Write-Host "`nCopying CLI files to output..." -ForegroundColor Green
-        $cliPublishPath = "cli\bin\Release\net10.0-windows\win-x64\publish"
+    #     Write-Host "`nCopying CLI files to output..." -ForegroundColor Green
+    #     $cliPublishPath = "cli\bin\Release\net10.0-windows\win-x64\publish"
 
-        Copy-Item "$cliPublishPath\ProxyBridge_CLI.exe" -Destination $OutputDir -Force
-        Write-Host "  Copied: ProxyBridge_CLI.exe" -ForegroundColor Gray
+    #     Copy-Item "$cliPublishPath\ProxyBridge_CLI.exe" -Destination $OutputDir -Force
+    #     Write-Host "  Copied: ProxyBridge_CLI.exe" -ForegroundColor Gray
 
-        Write-Host "`nCleaning up CLI build artifacts..." -ForegroundColor Yellow
-        Remove-Item "cli\bin" -Recurse -Force -ErrorAction SilentlyContinue
-        Remove-Item "cli\obj" -Recurse -Force -ErrorAction SilentlyContinue
-    } else {
-        Write-Host "  CLI publish failed!" -ForegroundColor Red
-        Write-Host $publishResult
-    }
+    #     Write-Host "`nCleaning up CLI build artifacts..." -ForegroundColor Yellow
+    #     Remove-Item "cli\bin" -Recurse -Force -ErrorAction SilentlyContinue
+    #     Remove-Item "cli\obj" -Recurse -Force -ErrorAction SilentlyContinue
+    # } else {
+    #     Write-Host "  CLI publish failed!" -ForegroundColor Red
+    #     Write-Host $publishResult
+    # }
 
     if (-not $NoSign) {
         Write-Host "`nSigning binaries..." -ForegroundColor Green
@@ -296,7 +296,7 @@ if ($success) {
         Pop-Location
         if ($LASTEXITCODE -eq 0) {
             Write-Host "  Installer created successfully" -ForegroundColor Green
-            $installerName = "ProxyBridge-Setup-3.2.0.exe"
+            $installerName = "CloudSmartIP-Setup-3.2.0.exe"
             if (Test-Path "installer\$installerName") {
                 Move-Item "installer\$installerName" -Destination $OutputDir -Force
                 Write-Host "  Moved: $installerName -> $OutputDir\" -ForegroundColor Gray

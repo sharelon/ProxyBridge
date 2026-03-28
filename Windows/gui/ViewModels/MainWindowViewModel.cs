@@ -18,7 +18,7 @@ public class MainWindowViewModel : ViewModelBase
     private const int MAX_CONNECTION_LOG_LINES = 100;
     private const int MAX_ACTIVITY_LOG_LINES = 100;
 
-    private string _title = "ProxyBridge";
+    private string _title = "CloudSmartIP-云智IP";
     private int _selectedTabIndex;
     private string _connectionsLog = "";
     private string _activityLog = "";
@@ -121,22 +121,22 @@ public class MainWindowViewModel : ViewModelBase
             };
             _activityLogTimer.Start();
 
-            _proxyService.SetDnsViaProxy(_dnsViaProxy);
-            _proxyService.SetLocalhostViaProxy(_localhostViaProxy);
-            if (!string.IsNullOrEmpty(_currentProxyIp) &&
-                !string.IsNullOrEmpty(_currentProxyPort) &&
-                ushort.TryParse(_currentProxyPort, out ushort portNum))
-            {
-                _proxyService.SetProxyConfig(
-                    _currentProxyType,
-                    _currentProxyIp,
-                    portNum,
-                    _currentProxyUsername,
-                    _currentProxyPassword);
-            }
-
             if (_proxyService.Start())
             {
+                _proxyService.SetDnsViaProxy(_dnsViaProxy);
+                _proxyService.SetLocalhostViaProxy(_localhostViaProxy);
+                if (!string.IsNullOrEmpty(_currentProxyIp) &&
+                    !string.IsNullOrEmpty(_currentProxyPort) &&
+                    ushort.TryParse(_currentProxyPort, out ushort portNum))
+                {
+                    _proxyService.SetProxyConfig(
+                        _currentProxyType,
+                        _currentProxyIp,
+                        portNum,
+                        _currentProxyUsername,
+                        _currentProxyPassword);
+                }
+
                 foreach (var rule in ProxyRules)
                 {
                     uint ruleId = _proxyService.AddRule(
@@ -155,7 +155,8 @@ public class MainWindowViewModel : ViewModelBase
             }
             else
             {
-                QueueActivityLog("ERROR: Failed to start ProxyBridge service");
+                //QueueActivityLog("ERROR: Failed to start ProxyBridge service");
+                QueueActivityLog(_loc.StartProxyFail);
             }
         }
         catch (Exception ex)
@@ -350,9 +351,9 @@ public class MainWindowViewModel : ViewModelBase
     private readonly Loc _loc = Loc.Instance;
     public Loc Loc => _loc;
 
-    private string _currentLanguage = "en";
-    private string _englishCheckmark = "✓";
-    private string _chineseCheckmark = "";
+    private string _currentLanguage = "zh";
+    private string _englishCheckmark = "";
+    private string _chineseCheckmark = "✓";
 
     public string EnglishCheckmark
     {
@@ -418,8 +419,10 @@ public class MainWindowViewModel : ViewModelBase
                             SaveConfigurationInternal();
                         }
                         else
-                        {
-                            QueueActivityLog("ERROR: Failed to set proxy config");
+                        { 
+
+                            //   QueueActivityLog("ERROR: Failed to set proxy config");
+                            QueueActivityLog(_loc.SetProxyConfigFail);
                         }
                     }
                     window.Close();
@@ -464,7 +467,8 @@ public class MainWindowViewModel : ViewModelBase
                         }
                         else
                         {
-                            QueueActivityLog("ERROR: Failed to add rule");
+                           // QueueActivityLog("ERROR: Failed to add rule");
+                            QueueActivityLog(_loc.AddRuleFailInfo);
                         }
                     }
                 },
@@ -627,7 +631,9 @@ public class MainWindowViewModel : ViewModelBase
                 }
                 else
                 {
-                    QueueActivityLog("ERROR: Failed to add rule");
+                    //QueueActivityLog("ERROR: Failed to add rule");
+                    QueueActivityLog(_loc.AddRuleFailInfo);
+
                 }
             }
         });
@@ -760,11 +766,15 @@ public class MainWindowViewModel : ViewModelBase
                 }
             }
 
-            QueueActivityLog("Configuration loaded successfully");
+            //QueueActivityLog("Configuration loaded successfully");
+            QueueActivityLog(_loc.LoadConfigSuccessInfo);
+
+
         }
         catch (Exception ex)
         {
-            QueueActivityLog($"Failed to load configuration: {ex.Message}");
+            //QueueActivityLog($"Failed to load configuration: {ex.Message}");
+            QueueActivityLog($"{_loc.LoadConfigFailInfo}: {ex.Message}");
         }
     }
 

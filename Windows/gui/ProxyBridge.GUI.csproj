@@ -5,15 +5,15 @@
     <Nullable>enable</Nullable>
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <AssemblyName>ProxyBridge</AssemblyName>
+    <AssemblyName>CloudSmartIP</AssemblyName>
     <RootNamespace>ProxyBridge.GUI</RootNamespace>
     <Version>3.2.0</Version>
     <AssemblyVersion>3.2.0</AssemblyVersion>
     <FileVersion>3.2.0</FileVersion>
     <ApplicationIcon>Assets\logo.ico</ApplicationIcon>
-    <Company>InterceptSuite</Company>
-    <Product>ProxyBridge</Product>
-    <Copyright>Copyright © 2026 InterceptSuite</Copyright>
+    <Company>CloudSmartIP</Company>
+    <Product>CloudSmartIP</Product>
+    <Copyright>Copyright © 2026 CloudSmartIP</Copyright>
     <Description>Universal proxy client for Windows applications</Description>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PublishAot>true</PublishAot>
@@ -26,10 +26,19 @@
     <IlcFoldIdenticalMethodBodies>true</IlcFoldIdenticalMethodBodies>
     <EventSourceSupport>false</EventSourceSupport>
     <UseSystemResourceKeys>true</UseSystemResourceKeys>
+    <SignAssembly>False</SignAssembly>
+    <AssemblyOriginatorKeyFile>cloudsmartip.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Label="Avalonia">
+    <AvaloniaUseCompiledBindingsByDefault>False</AvaloniaUseCompiledBindingsByDefault>
   </PropertyGroup>
 
   <ItemGroup>
     <AvaloniaResource Include="Assets\logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\logo.ico" />
   </ItemGroup>
 
   <ItemGroup>

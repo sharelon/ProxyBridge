@@ -15,7 +15,7 @@ public class SettingsService
 {
     private static readonly string SettingsPath = Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-        "ProxyBridge",
+        "CloudSmartIP",
         "settings.json");
 
     public AppSettings LoadSettings()
@@ -45,7 +45,7 @@ public class SettingsService
 
     public void SetStartupWithWindows(bool enable)
     {
-        const string taskName = "ProxyBridge";
+        const string taskName = "CloudSmartIP";
 
         try
         {
@@ -98,7 +98,7 @@ public class SettingsService
 
     public bool IsStartupEnabled()
     {
-        const string taskName = "ProxyBridge";
+        const string taskName = "CloudSmartIP";
 
         try
         {

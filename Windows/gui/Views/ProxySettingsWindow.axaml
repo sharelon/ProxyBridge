@@ -12,18 +12,18 @@
         Width="500" Height="650"
         MinHeight="550"
         CanResize="True"
-        Background="#FF2D2D30"
+        Background="#FFFFFFFF"
         WindowStartupLocation="CenterOwner">
 
     <DockPanel>
         <!-- Header -->
-        <Border DockPanel.Dock="Top" Background="#FF1E1E1E" Padding="20,16">
+        <Border DockPanel.Dock="Top" Background="#FFE6F7FF" Padding="20,16">
             <StackPanel Orientation="Horizontal" Spacing="10">
                 <TextBlock Text="🔧" FontSize="22" VerticalAlignment="Center"/>
                 <TextBlock Text="{Binding Loc.ProxySettingsTitle}"
                            FontSize="18"
                            FontWeight="SemiBold"
-                           Foreground="#FFE0E0E0"
+                           Foreground="#FF333333"
                            VerticalAlignment="Center"/>
             </StackPanel>
         </Border>
@@ -73,12 +73,12 @@
             </StackPanel>
 
             <TextBlock Text="{Binding Loc.RequiredFieldsNote}"
-                       Foreground="#FF999999"
+                       Foreground="#FF666666"
                        FontSize="12"
                        Margin="0,8,0,0"/>
 
             <!-- Test Connection Section -->
-            <Border BorderBrush="#FF3F3F46"
+            <Border BorderBrush="#FFCCCCCC"
                     BorderThickness="0,1,0,0"
                     Padding="0,16,0,0"
                     Margin="0,16,0,0"
@@ -87,7 +87,7 @@
                     <TextBlock Text="{Binding Loc.TestConnectionTitle}"
                                FontSize="14"
                                FontWeight="SemiBold"
-                               Foreground="#FFE0E0E0"/>
+                               Foreground="#FF333333"/>
                     <Button Content="{Binding Loc.TestConnectionButton}"
                             Command="{Binding OpenTestCommand}"
                             Classes="secondary"
@@ -96,7 +96,7 @@
             </Border>
 
             <!-- Test Connection Form -->
-            <Border BorderBrush="#FF3F3F46"
+            <Border BorderBrush="#FFCCCCCC"
                     BorderThickness="0,1,0,0"
                     Padding="0,16,0,0"
                     Margin="0,16,0,0"
@@ -106,7 +106,7 @@
                         <TextBlock Text="{Binding Loc.TestConnectionTitle}"
                                    FontSize="14"
                                    FontWeight="SemiBold"
-                                   Foreground="#FFE0E0E0"
+                                   Foreground="#FF333333"
                                    VerticalAlignment="Center"/>
                         <Button Grid.Column="1"
                                 Content="✕"
@@ -135,17 +135,16 @@
 
                     <StackPanel Spacing="6">
                         <TextBlock Text="{Binding Loc.OutputLabel}" Classes="label"/>
-                        <Border Background="#FF1E1E1E"
-                                BorderBrush="#FF3F3F46"
+                        <Border Background="#FFFFFFFF"
+                                BorderBrush="#FFCCCCCC"
                                 BorderThickness="1"
                                 Padding="10"
                                 MinHeight="150"
                                 MaxHeight="200">
                             <ScrollViewer VerticalScrollBarVisibility="Auto">
                                 <TextBlock Text="{Binding TestOutput}"
-                                           FontFamily="Consolas,monospace"
                                            FontSize="12"
-                                           Foreground="#FFE0E0E0"
+                                           Foreground="#FF333333"
                                            TextWrapping="Wrap"/>
                             </ScrollViewer>
                         </Border>

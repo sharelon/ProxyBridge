@@ -1,5 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -12,8 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-
-  <!-- Menu Items -->
   <data name="MenuProxy" xml:space="preserve">
     <value>Proxy</value>
   </data>
@@ -48,21 +151,17 @@
     <value>About</value>
   </data>
   <data name="MenuAboutProxyBridge" xml:space="preserve">
-    <value>About ProxyBridge</value>
+    <value>About CloudSmartIP</value>
   </data>
   <data name="MenuCheckUpdates" xml:space="preserve">
     <value>Check for Updates</value>
   </data>
-
-  <!-- Tabs -->
   <data name="TabConnections" xml:space="preserve">
     <value>Connections</value>
   </data>
   <data name="TabActivity" xml:space="preserve">
     <value>Activity Logs</value>
   </data>
-
-  <!-- Buttons -->
   <data name="ButtonClear" xml:space="preserve">
     <value>Clear</value>
   </data>
@@ -84,21 +183,17 @@
   <data name="ButtonDelete" xml:space="preserve">
     <value>Delete</value>
   </data>
-
-  <!-- Search Placeholders -->
   <data name="SearchConnectionsPlaceholder" xml:space="preserve">
     <value>🔍 Search connections...</value>
   </data>
   <data name="SearchActivityPlaceholder" xml:space="preserve">
     <value>🔍 Search activity logs...</value>
   </data>
-
-  <!-- Log Messages -->
   <data name="LogServiceStarted" xml:space="preserve">
-    <value>ProxyBridge service started successfully</value>
+    <value>service started successfully</value>
   </data>
   <data name="LogServiceStartFailed" xml:space="preserve">
-    <value>ERROR: Failed to start ProxyBridge service</value>
+    <value>ERROR: Failed to start service</value>
   </data>
   <data name="LogRestoredProxySettings" xml:space="preserve">
     <value>Restored proxy settings</value>
@@ -139,8 +234,6 @@
   <data name="LogWithAuth" xml:space="preserve">
     <value>with auth</value>
   </data>
-
-  <!-- Proxy Settings Window -->
   <data name="WindowProxySettings" xml:space="preserve">
     <value>Proxy Settings</value>
   </data>
@@ -192,8 +285,6 @@
   <data name="PlaceholderNoAuth" xml:space="preserve">
     <value>Leave empty if no auth required</value>
   </data>
-
-  <!-- Proxy Rules Window -->
   <data name="WindowProxyRules" xml:space="preserve">
     <value>Process Rules</value>
   </data>
@@ -231,7 +322,7 @@
     <value>Example: iexplore.exe; "C:\some app.exe"; fire*.exe; *.bin</value>
   </data>
   <data name="ExampleTargetHosts" xml:space="preserve">
-    <value>Example: 127.0.0.1; 192.168.1.*; 10.1.0.0-10.5.255.255</value>
+    <value>Example: 127.0.0.1; 192.168.1.*; 10.1.0.0-10.5.255.255; example.com; *.example.com</value>
   </data>
   <data name="ExampleTargetPorts" xml:space="preserve">
     <value>Example: 80; 8000-9000; 3128</value>
@@ -256,5 +347,41 @@
   </data>
   <data name="ButtonSaveRule" xml:space="preserve">
     <value>Save Rule</value>
+  </data>
+  <data name="LogInitialized" xml:space="preserve">
+    <value>CloudSamrtIP Initialization Success</value>
+  </data>
+  <data name="LoadConfigSuccessInfo" xml:space="preserve">
+    <value>Configuration loaded successfully</value>
+  </data>
+  <data name="LoadConfigFailInfo" xml:space="preserve">
+    <value>Failed to load configuration</value>
+  </data>
+  <data name="AddRuleFailInfo" xml:space="preserve">
+    <value>ERROR: Failed to add rule</value>
+  </data>
+  <data name="SetProxyConfigFail" xml:space="preserve">
+    <value>ERROR: Failed to set proxy config</value>
+  </data>
+  <data name="StartProxyFail" xml:space="preserve">
+    <value>ERROR: Failed to start SmartIP service</value>
+  </data>
+  <data name="SearchConnectionsholder" xml:space="preserve">
+    <value>🔍 Search connections...</value>
+  </data>
+  <data name="ButtonRuleSelectAll" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="ButtonRuleDelSelected" xml:space="preserve">
+    <value>Delete Selected</value>
+  </data>
+  <data name="ButtonRuleExport" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="ButtonRuleImport" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="ButtonRuleDesSelected" xml:space="preserve">
+    <value>None Selected</value>
   </data>
 </root>
